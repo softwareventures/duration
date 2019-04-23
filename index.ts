@@ -109,6 +109,13 @@ export function formathhmmss(duration: DurationLike): string {
         + ("0" + seconds).replace(/^0?([0-9]{2})/, "$1");
 }
 
+export function formathhmm(duration: DurationLike): string {
+    const n = normalize(duration);
+    const {hours} = n;
+    const minutes = n.minutes + n.seconds / 60;
+    return "" + hours + ":" + ("0" + minutes).replace(/^0?([0-9]{2})/, "$1");
+}
+
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }

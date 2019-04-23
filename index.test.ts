@@ -1,6 +1,17 @@
 import test from "ava";
 import {fromSeconds, isValid, parsehhmmss, toSeconds} from ".";
-import {add, divide, formathhmmss, fromHours, fromMinutes, multiply, subtract, toHours, toMinutes} from "./index";
+import {
+    add,
+    divide,
+    formathhmm,
+    formathhmmss,
+    fromHours,
+    fromMinutes,
+    multiply,
+    subtract,
+    toHours,
+    toMinutes
+} from "./index";
 
 test("isValid", t => {
     t.true(isValid({}));
@@ -118,6 +129,14 @@ test("formathhmmss", t => {
     t.is(formathhmmss({hours: 6, minutes: 5, seconds: 1}), "6:05:01");
     t.is(formathhmmss({hours: 1, minutes: 48, seconds: 23.25}), "1:48:23.25");
     t.is(formathhmmss({hours: 1, minutes: 62, seconds: 77}), "2:03:17");
+});
+
+test("formathhmm", t => {
+    t.is(formathhmm({}), "0:00");
+    t.is(formathhmm({seconds: 1.2}), "0:00.02");
+    t.is(formathhmm({seconds: 3}), "0:00.05");
+    t.is(formathhmm({minutes: 3, seconds: 21}), "0:03.35");
+    t.is(formathhmm({hours: 6, minutes: 5, seconds: 6}), "6:05.1");
 });
 
 test("add", t => {
