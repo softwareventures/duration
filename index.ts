@@ -95,3 +95,11 @@ export function multiply(duration: DurationLike, scale: number): Duration {
 export function multiplyFn(scale: number): (duration: DurationLike) => Duration {
     return duration => multiply(duration, scale);
 }
+
+export function divide(duration: DurationLike, divisor: number): Duration {
+    return fromSeconds(toSeconds(duration) / divisor);
+}
+
+export function divideFn(divisor: number): (duration: DurationLike) => Duration {
+    return duration => divide(duration, divisor);
+}
