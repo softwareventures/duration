@@ -76,6 +76,14 @@ export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }
 
+export function addFn(b: DurationLike): (a: DurationLike) => Duration {
+    return a => add(a, b);
+}
+
 export function subtract(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) - toSeconds(b));
+}
+
+export function subtractFn(b: DurationLike): (a: DurationLike) => Duration {
+    return a => subtract(a, b);
 }
