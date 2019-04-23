@@ -38,5 +38,11 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "dependencies": {
+    "@types/is-finite": "^1.0.0",
+    "@types/is-integer": "^1.0.0",
+    "is-finite": "^1.0.2",
+    "is-integer": "^1.0.7"
   }
 }
