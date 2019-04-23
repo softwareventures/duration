@@ -171,3 +171,7 @@ export function divide(duration: DurationLike, divisor: number): Duration {
 export function divideFn(divisor: number): (duration: DurationLike) => Duration {
     return duration => divide(duration, divisor);
 }
+
+export function roundToSecond(duration: DurationLike): Duration {
+    return fromSeconds(Math.round(toSeconds(duration)));
+}
