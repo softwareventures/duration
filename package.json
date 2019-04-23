@@ -1,6 +1,6 @@
 {
   "name": "@softwareventures/duration",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "Data type representing a duration of time",
   "keywords": [
     "typescript",
@@ -14,13 +14,15 @@
   "license": "ISC",
   "scripts": {
     "prepare": "tsc",
-    "test": "tslint --project . && ava"
+    "test": "tslint --project . && ava",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@softwareventures/tsconfig": "2.0.0",
     "@softwareventures/tslint-rules": "0.6.6",
     "ava": "1.4.1",
     "cz-conventional-changelog": "2.1.0",
+    "semantic-release": "15.13.3",
     "ts-node": "8.1.0",
     "tslint": "5.16.0",
     "typescript": "3.4.4"
