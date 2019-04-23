@@ -1,6 +1,6 @@
 {
   "name": "@softwareventures/duration",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "description": "Data type representing a duration of time",
   "keywords": [
     "typescript",
@@ -10,7 +10,7 @@
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "homepage": "https://github.com/softwareventures/duration",
   "bugs": "https://github.com/softwareventures/duration/issues",
-  "repository": "https://github.com/github:softwareventures/duration",
+  "repository": "github:softwareventures/duration",
   "license": "ISC",
   "scripts": {
     "prepare": "tsc",
