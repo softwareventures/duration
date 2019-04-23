@@ -1,0 +1,42 @@
+{
+  "name": "@softwareventures/duration",
+  "version": "0.0.0-development",
+  "description": "Data type representing a duration of time",
+  "keywords": [
+    "typescript",
+    "duration",
+    "time"
+  ],
+  "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
+  "homepage": "https://github.com/softwareventures/duration",
+  "bugs": "https://github.com/softwareventures/duration/issues",
+  "repository": "https://github.com/github:softwareventures/duration",
+  "license": "ISC",
+  "scripts": {
+    "prepare": "tsc",
+    "test": "tslint --project . && ava"
+  },
+  "devDependencies": {
+    "@softwareventures/tsconfig": "2.0.0",
+    "@softwareventures/tslint-rules": "0.6.6",
+    "ava": "1.4.1",
+    "cz-conventional-changelog": "2.1.0",
+    "ts-node": "8.1.0",
+    "tslint": "5.15.0",
+    "typescript": "3.4.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
