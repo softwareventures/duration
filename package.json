@@ -1,6 +1,6 @@
 {
   "name": "@softwareventures/duration",
-  "version": "0.0.0-development",
+  "version": "0.1.0",
   "description": "Data type representing a duration of time",
   "keywords": [
     "typescript",
