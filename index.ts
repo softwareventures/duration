@@ -98,7 +98,7 @@ export function parsehhmmss(duration: string): Duration | null {
             ? 0
             : parseFloat(matches[3]);
 
-        return {hours, minutes, seconds};
+        return normalize({hours, minutes, seconds});
     }
 }
 

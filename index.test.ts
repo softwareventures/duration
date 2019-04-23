@@ -118,7 +118,7 @@ test("parsehhmmss", t => {
     t.deepEqual(parsehhmmss("3:2.5"), {hours: 0, minutes: 3, seconds: 2.5});
     t.deepEqual(parsehhmmss("6:5:1"), {hours: 6, minutes: 5, seconds: 1});
     t.deepEqual(parsehhmmss("1:48:23.25"), {hours: 1, minutes: 48, seconds: 23.25});
-    t.deepEqual(parsehhmmss("1:62:77"), {hours: 1, minutes: 62, seconds: 77});
+    t.deepEqual(parsehhmmss("1:62:77"), {hours: 2, minutes: 3, seconds: 17});
 });
 
 test("parsehhmm", t => {
