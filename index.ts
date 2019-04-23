@@ -52,6 +52,13 @@ export function fromSeconds(seconds: number): Duration {
     return {hours, minutes, seconds};
 }
 
+export function toMinutes(duration: DurationLike): number {
+    const hours = duration.hours == null ? 0 : duration.hours;
+    const minutes = duration.minutes == null ? 0 : duration.minutes;
+    const seconds = duration.seconds == null ? 0 : duration.seconds;
+    return hours * 60 + minutes + seconds / 60;
+}
+
 export function parsehhmmss(duration: string): Duration | null {
     const matches = /^\s*(?:(?:([0-9]+):)?([0-9]+):)?([0-9]+(?:\.[0-9]*)?|\.[0-9]+)\s*$/.exec(duration);
 
