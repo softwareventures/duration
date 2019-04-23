@@ -1,6 +1,6 @@
 import test from "ava";
 import {fromSeconds, isValid, parsehhmmss, toSeconds} from ".";
-import {add, divide, fromHours, fromMinutes, multiply, subtract, toHours, toMinutes} from "./index";
+import {add, divide, formathhmmss, fromHours, fromMinutes, multiply, subtract, toHours, toMinutes} from "./index";
 
 test("isValid", t => {
     t.true(isValid({}));
@@ -106,6 +106,18 @@ test("parsehhmmss", t => {
     t.deepEqual(parsehhmmss("6:5:1"), {hours: 6, minutes: 5, seconds: 1});
     t.deepEqual(parsehhmmss("1:48:23.25"), {hours: 1, minutes: 48, seconds: 23.25});
     t.deepEqual(parsehhmmss("1:62:77"), {hours: 1, minutes: 62, seconds: 77});
+});
+
+test("formathhmmss", t => {
+    t.is(formathhmmss({}), "0:00:00");
+    t.is(formathhmmss({seconds: 1.2}), "0:00:01.2");
+    t.is(formathhmmss({seconds: 2}), "0:00:02");
+    t.is(formathhmmss({seconds: 13}), "0:00:13");
+    t.is(formathhmmss({minutes: 3, seconds: 22.5}), "0:03:22.5");
+    t.is(formathhmmss({minutes: 3, seconds: 2.5}), "0:03:02.5");
+    t.is(formathhmmss({hours: 6, minutes: 5, seconds: 1}), "6:05:01");
+    t.is(formathhmmss({hours: 1, minutes: 48, seconds: 23.25}), "1:48:23.25");
+    t.is(formathhmmss({hours: 1, minutes: 62, seconds: 77}), "2:03:17");
 });
 
 test("add", t => {

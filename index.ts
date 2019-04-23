@@ -102,6 +102,13 @@ export function parsehhmmss(duration: string): Duration | null {
     }
 }
 
+export function formathhmmss(duration: DurationLike): string {
+    const {hours, minutes, seconds} = normalize(duration);
+    return "" + hours + ":"
+        + ("0" + minutes).substr(-2) + ":"
+        + ("0" + seconds).replace(/^0?([0-9]{2})/, "$1");
+}
+
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }
