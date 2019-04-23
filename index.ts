@@ -75,3 +75,7 @@ export function parsehhmmss(duration: string): Duration | null {
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }
+
+export function subtract(a: DurationLike, b: DurationLike): Duration {
+    return fromSeconds(toSeconds(a) - toSeconds(b));
+}

@@ -1,6 +1,6 @@
 import test from "ava";
 import {fromSeconds, isValid, parsehhmmss, toSeconds} from ".";
-import {add} from "./index";
+import {add, subtract} from "./index";
 
 test("isValid", t => {
     t.true(isValid({}));
@@ -80,4 +80,9 @@ test("add", t => {
     t.deepEqual(add({seconds: 33}, {minutes: 1}), {hours: 0, minutes: 1, seconds: 33});
     t.deepEqual(add({hours: 30, minutes: 23, seconds: 56},{hours: 2, minutes: 46, seconds: 34}),
         {hours: 33, minutes: 10, seconds: 30});
+});
+
+test("subtract", t => {
+    t.deepEqual(subtract({hours: 30, minutes: 23, seconds: 56}, {hours: 2, minutes: 46, seconds: 34}),
+        {hours: 27, minutes: 37, seconds: 22})
 });
