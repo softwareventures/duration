@@ -487,6 +487,11 @@
   resolved "https://registry.yarnpkg.com/@types/is-integer/-/is-integer-1.0.0.tgz#8393445ad14b2b51c9ac7e91220de0efc8de2028"
   integrity sha512-AAFRQhSVYdpQgKEkUY+bMRL8yAZSq7h7AY14iSK1xod4wOdH4Gc/KMAR4tlSo9Sf5KsYizWwlJOnLCbet5AU2A==
 
+"@types/math-trunc@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/math-trunc/-/math-trunc-1.0.0.tgz#5df86d4e072e364c4069fd0a1032d5f4505ee1d1"
+  integrity sha512-lx+nu5NB0abO4WAp1QVSvDlEzAeCjncbn2+1yHk69D4yrJowvWsVL3Qii7ij7E4AA912L8dDe7AlETz18SHfQQ==
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -3470,6 +3475,11 @@ matcher@^1.1.1:
   integrity sha512-+BmqxWIubKTRKNWx/ahnCkk3mG8m7OturVlqq6HiojGJTd5hVYbgZm6WzcYPCoB+KBT4Vd6R7WSRG2OADNaCjg==
   dependencies:
     escape-string-regexp "^1.0.4"
+
+math-trunc@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/math-trunc/-/math-trunc-1.0.1.tgz#dbdbba562ba8deff5faca776b185e8a7b4235c1f"
+  integrity sha1-29u6Viuo3v9frKd2sYXop7QjXB8=
 
 md5-hex@^2.0.0:
   version "2.0.0"

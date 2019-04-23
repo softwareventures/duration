@@ -44,7 +44,9 @@
   "dependencies": {
     "@types/is-finite": "^1.0.0",
     "@types/is-integer": "^1.0.0",
+    "@types/math-trunc": "^1.0.0",
     "is-finite": "^1.0.2",
-    "is-integer": "^1.0.7"
+    "is-integer": "^1.0.7",
+    "math-trunc": "^1.0.1"
   }
 }

@@ -1,4 +1,5 @@
 import isInteger = require("is-integer");
+import trunc = require("math-trunc");
 import {isIntegerInRange, isNonNegativeFinite} from "./util";
 
 /** A length of time. */
@@ -57,6 +58,13 @@ export function toMinutes(duration: DurationLike): number {
     const minutes = duration.minutes == null ? 0 : duration.minutes;
     const seconds = duration.seconds == null ? 0 : duration.seconds;
     return hours * 60 + minutes + seconds / 60;
+}
+
+export function fromMinutes(minutes: number): Duration {
+    const hours = trunc(minutes / 60);
+    const seconds = (minutes % 1) * 60;
+    minutes = trunc(minutes - hours * 60);
+    return {hours, minutes, seconds};
 }
 
 export function parsehhmmss(duration: string): Duration | null {
