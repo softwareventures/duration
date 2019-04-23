@@ -87,3 +87,11 @@ export function subtract(a: DurationLike, b: DurationLike): Duration {
 export function subtractFn(b: DurationLike): (a: DurationLike) => Duration {
     return a => subtract(a, b);
 }
+
+export function multiply(duration: DurationLike, scale: number): Duration {
+    return fromSeconds(toSeconds(duration) * scale);
+}
+
+export function multiplyFn(scale: number): (duration: DurationLike) => Duration {
+    return duration => multiply(duration, scale);
+}
