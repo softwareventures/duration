@@ -74,6 +74,14 @@ export function toHours(duration: DurationLike): number {
     return hours + minutes / 60 + seconds / 3600;
 }
 
+export function fromHours(hours: number): Duration {
+    const truncatedHours = trunc(hours);
+    const minutes = (hours - truncatedHours) * 60;
+    const truncatedMinutes = trunc(minutes);
+    const seconds = (minutes - truncatedMinutes) * 60;
+    return {hours: truncatedHours, minutes: truncatedMinutes, seconds};
+}
+
 export function parsehhmmss(duration: string): Duration | null {
     const matches = /^\s*(?:(?:([0-9]+):)?([0-9]+):)?([0-9]+(?:\.[0-9]*)?|\.[0-9]+)\s*$/.exec(duration);
 
