@@ -8,7 +8,9 @@ export interface Duration {
     seconds: number;
 }
 
-export function isValid(duration: Readonly<Partial<Duration>>): boolean {
+export type DurationLike = Readonly<Partial<Duration>>;
+
+export function isValid(duration: DurationLike): boolean {
     const hours = duration.hours == null ? 0 : duration.hours;
     const minutes = duration.minutes == null ? 0 : duration.minutes;
     const seconds = duration.seconds == null ? 0 : duration.seconds;
@@ -18,7 +20,7 @@ export function isValid(duration: Readonly<Partial<Duration>>): boolean {
         && isNonNegativeFinite(seconds);
 }
 
-export function validate(duration: Readonly<Partial<Duration>>): void {
+export function validate(duration: DurationLike): void {
     if (!isValid(duration)) {
         throw new TypeError("Invalid duration");
     }
@@ -31,11 +33,11 @@ export function isNormal(duration: Readonly<Duration>): boolean {
         && duration.seconds < 60;
 }
 
-export function normalize(duration: Readonly<Partial<Duration>>): Duration {
+export function normalize(duration: DurationLike): Duration {
     return fromSeconds(toSeconds(duration));
 }
 
-export function toSeconds(duration: Readonly<Partial<Duration>>): number {
+export function toSeconds(duration: DurationLike): number {
     const hours = duration.hours == null ? 0 : duration.hours;
     const minutes = duration.minutes == null ? 0 : duration.minutes;
     const seconds = duration.seconds == null ? 0 : duration.seconds;
