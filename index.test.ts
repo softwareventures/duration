@@ -4,7 +4,7 @@ import {
     add,
     divide,
     formathhmm,
-    formathhmmss,
+    formathhmmss, formatmmss,
     fromHours,
     fromMinutes,
     multiply,
@@ -137,6 +137,18 @@ test("formathhmm", t => {
     t.is(formathhmm({seconds: 3}), "0:00.05");
     t.is(formathhmm({minutes: 3, seconds: 21}), "0:03.35");
     t.is(formathhmm({hours: 6, minutes: 5, seconds: 6}), "6:05.1");
+});
+
+test("formatmmss", t => {
+    t.is(formatmmss({}), "0:00");
+    t.is(formatmmss({seconds: 1.2}), "0:01.2");
+    t.is(formatmmss({seconds: 2}), "0:02");
+    t.is(formatmmss({seconds: 13}), "0:13");
+    t.is(formatmmss({minutes: 3, seconds: 22.5}), "3:22.5");
+    t.is(formatmmss({minutes: 3, seconds: 2.5}), "3:02.5");
+    t.is(formatmmss({hours: 6, minutes: 5, seconds: 1}), "365:01");
+    t.is(formatmmss({hours: 1, minutes: 48, seconds: 23.25}), "108:23.25");
+    t.is(formatmmss({hours: 1, minutes: 62, seconds: 77}), "123:17");
 });
 
 test("add", t => {

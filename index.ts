@@ -116,6 +116,13 @@ export function formathhmm(duration: DurationLike): string {
     return "" + hours + ":" + ("0" + minutes).replace(/^0?([0-9]{2})/, "$1");
 }
 
+export function formatmmss(duration: DurationLike): string {
+    const n = normalize(duration);
+    const minutes = n.hours * 60 + n.minutes;
+    const {seconds} = n;
+    return "" + minutes + ":" + ("0" + seconds).replace(/^0?([0-9]{2})/, "$1");
+}
+
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }
