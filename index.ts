@@ -102,6 +102,23 @@ export function parsehhmmss(duration: string): Duration | null {
     }
 }
 
+export function parsehhmm(duration: string): Duration | null {
+    const matches = /^\s*(?:([0-9]+):)?([0-9]+(?:\.[0-9]*)?|\.[0-9]+)\s*$/.exec(duration);
+
+    if (matches == null) {
+        return null;
+    } else {
+        const hours = matches[1] == null
+            ? 0
+            : parseInt(matches[1], 10);
+        const minutes = matches[2] == null
+            ? 0
+            : parseFloat(matches[2]);
+
+        return normalize({hours, minutes});
+    }
+}
+
 export function formathhmmss(duration: DurationLike): string {
     const {hours, minutes, seconds} = normalize(duration);
     return "" + hours + ":"

@@ -4,10 +4,12 @@ import {
     add,
     divide,
     formathhmm,
-    formathhmmss, formatmmss,
+    formathhmmss,
+    formatmmss,
     fromHours,
     fromMinutes,
     multiply,
+    parsehhmm,
     subtract,
     toHours,
     toMinutes
@@ -117,6 +119,23 @@ test("parsehhmmss", t => {
     t.deepEqual(parsehhmmss("6:5:1"), {hours: 6, minutes: 5, seconds: 1});
     t.deepEqual(parsehhmmss("1:48:23.25"), {hours: 1, minutes: 48, seconds: 23.25});
     t.deepEqual(parsehhmmss("1:62:77"), {hours: 1, minutes: 62, seconds: 77});
+});
+
+test("parsehhmm", t => {
+    t.is(parsehhmm(""), null);
+    t.is(parsehhmm(":"), null);
+    t.is(parsehhmm("::"), null);
+    t.is(parsehhmm(":1.2"), null);
+    t.is(parsehhmm("::2"), null);
+    t.deepEqual(parsehhmm("0"), {hours: 0, minutes: 0, seconds: 0});
+    t.deepEqual(parsehhmm("0.25"), {hours: 0, minutes: 0, seconds: 15});
+    t.deepEqual(parsehhmm("1.5"), {hours: 0, minutes: 1, seconds: 30});
+    t.deepEqual(parsehhmm("2"), {hours: 0, minutes: 2, seconds: 0});
+    t.deepEqual(parsehhmm("0:13"), {hours: 0, minutes: 13, seconds: 0});
+    t.deepEqual(parsehhmm("3:22.5"), {hours: 3, minutes: 22, seconds: 30});
+    t.deepEqual(parsehhmm("3:2.5"), {hours: 3, minutes: 2, seconds: 30});
+    t.is(parsehhmm("6:5:1"), null);
+    t.deepEqual(parsehhmm("62:77"), {hours: 63, minutes: 17, seconds: 0});
 });
 
 test("formathhmmss", t => {
