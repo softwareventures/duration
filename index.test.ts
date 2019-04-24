@@ -9,7 +9,7 @@ import {
     fromHours,
     fromMinutes,
     multiply,
-    parsehhmm, roundToSecond, roundToSeconds,
+    parsehhmm, roundToMinute, roundToSecond, roundToSeconds,
     subtract,
     toHours,
     toMinutes
@@ -215,4 +215,12 @@ test("roundToSeconds", t => {
     t.deepEqual(roundToSeconds({seconds: 1.2}, 2), {hours: 0, minutes: 0, seconds: 2});
     t.deepEqual(roundToSeconds({seconds: 1}, 2), {hours: 0, minutes: 0, seconds: 2});
     t.deepEqual(roundToSeconds({seconds: 4.8}, 2), {hours: 0, minutes: 0, seconds: 4});
+});
+
+test("roundToMinute", t => {
+    t.deepEqual(roundToMinute({}), {hours: 0, minutes: 0, seconds: 0});
+    t.deepEqual(roundToMinute({minutes: 5.2}), {hours: 0, minutes: 5, seconds: 0});
+    t.deepEqual(roundToMinute({minutes: 5.8}), {hours: 0, minutes: 6, seconds: 0});
+    t.deepEqual(roundToMinute({minutes: 8, seconds: 20}), {hours: 0, minutes: 8, seconds: 0});
+    t.deepEqual(roundToMinute({minutes: 8, seconds: 30}), {hours: 0, minutes: 9, seconds: 0});
 });

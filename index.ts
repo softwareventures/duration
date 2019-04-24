@@ -183,3 +183,7 @@ export function roundToSeconds(duration: DurationLike, seconds: number): Duratio
 export function roundToSecondsFn(seconds: number): (duration: DurationLike) => Duration {
     return duration => roundToSeconds(duration, seconds);
 }
+
+export function roundToMinute(duration: DurationLike): Duration {
+    return fromMinutes(Math.round(toMinutes(duration)));
+}
