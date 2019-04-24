@@ -199,3 +199,11 @@ export function roundToMinutesFn(minutes: number): (duration: DurationLike) => D
 export function roundToHour(duration: DurationLike): Duration {
     return fromHours(Math.round(toHours(duration)));
 }
+
+export function roundToHours(duration: DurationLike, hours: number): Duration {
+    return fromHours(Math.round(toHours(duration) / hours) * hours);
+}
+
+export function roundToHoursFn(hours: number): (duration: DurationLike) => Duration {
+    return duration => roundToHours(duration, hours);
+}
