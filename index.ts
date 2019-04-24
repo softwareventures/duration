@@ -144,6 +144,18 @@ export function formathhmm(duration: DurationLike): string {
     return "" + hours + ":" + ("0" + minutes).replace(/^0?([0-9]{2})/, "$1");
 }
 
+export function formathhmmFixed(duration: DurationLike, fractionDigits = 0): string {
+    const n = normalize(duration);
+    const {hours} = n;
+    const minutes = n.minutes + n.seconds / 60;
+    return "" + hours + ":"
+        + ("0" + minutes.toFixed(fractionDigits)).replace(/^0?([0-9]{2})/, "$1");
+}
+
+export function formathhmmFixedFn(fractionDigits = 0): (duration: DurationLike) => string {
+    return duration => formathhmmFixed(duration, fractionDigits);
+}
+
 export function formatmmss(duration: DurationLike): string {
     const n = normalize(duration);
     const minutes = n.hours * 60 + n.minutes;

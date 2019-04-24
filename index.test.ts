@@ -3,7 +3,7 @@ import {fromSeconds, isValid, parsehhmmss, toSeconds} from ".";
 import {
     add,
     divide,
-    formathhmm,
+    formathhmm, formathhmmFixed,
     formathhmmss, formathhmmssFixed,
     formatmmss,
     fromHours,
@@ -178,6 +178,21 @@ test("formathhmm", t => {
     t.is(formathhmm({seconds: 3}), "0:00.05");
     t.is(formathhmm({minutes: 3, seconds: 21}), "0:03.35");
     t.is(formathhmm({hours: 6, minutes: 5, seconds: 6}), "6:05.1");
+});
+
+test("formathhmmFixed", t => {
+    t.is(formathhmmFixed({}, 1), "0:00.0");
+    t.is(formathhmmFixed({seconds: 1.2}, 0), "0:00");
+    t.is(formathhmmFixed({seconds: 1.2}, 1), "0:00.0");
+    t.is(formathhmmFixed({seconds: 1.2}, 2), "0:00.02");
+    t.is(formathhmmFixed({seconds: 3}, 0), "0:00");
+    t.is(formathhmmFixed({seconds: 3}, 1), "0:00.1");
+    t.is(formathhmmFixed({seconds: 3}, 2), "0:00.05");
+    t.is(formathhmmFixed({minutes: 3, seconds: 21}), "0:03");
+    t.is(formathhmmFixed({minutes: 3, seconds: 21}, 1), "0:03.4");
+    t.is(formathhmmFixed({minutes: 3, seconds: 21}, 2), "0:03.35");
+    t.is(formathhmmFixed({hours: 6, minutes: 5, seconds: 6}), "6:05");
+    t.is(formathhmmFixed({hours: 6, minutes: 5, seconds: 6}, 1), "6:05.1");
 });
 
 test("formatmmss", t => {
