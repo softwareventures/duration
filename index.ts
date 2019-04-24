@@ -175,3 +175,11 @@ export function divideFn(divisor: number): (duration: DurationLike) => Duration 
 export function roundToSecond(duration: DurationLike): Duration {
     return fromSeconds(Math.round(toSeconds(duration)));
 }
+
+export function roundToSeconds(duration: DurationLike, seconds: number): Duration {
+    return fromSeconds(Math.round(toSeconds(duration) / seconds) * seconds);
+}
+
+export function roundToSecondsFn(seconds: number): (duration: DurationLike) => Duration {
+    return duration => roundToSeconds(duration, seconds);
+}
