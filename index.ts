@@ -195,3 +195,7 @@ export function roundToMinutes(duration: DurationLike, minutes: number): Duratio
 export function roundToMinutesFn(minutes: number): (duration: DurationLike) => Duration {
     return duration => roundToMinutes(duration, minutes);
 }
+
+export function roundToHour(duration: DurationLike): Duration {
+    return fromHours(Math.round(toHours(duration)));
+}
