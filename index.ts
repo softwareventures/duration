@@ -126,6 +126,17 @@ export function formathhmmss(duration: DurationLike): string {
         + ("0" + seconds).replace(/^0?([0-9]{2})/, "$1");
 }
 
+export function formathhmmssFixed(duration: DurationLike, fractionDigits = 0): string {
+    const {hours, minutes, seconds} = normalize(duration);
+    return "" + hours + ":"
+        + ("0" + minutes).substr(-2) + ":"
+        + ("0" + seconds.toFixed(fractionDigits)).replace(/^0?([0-9]{2})/, "$1");
+}
+
+export function formathhmmssFixedFn(fractionDigits = 0): (duration: DurationLike) => string {
+    return duration => formathhmmssFixed(duration, fractionDigits);
+}
+
 export function formathhmm(duration: DurationLike): string {
     const n = normalize(duration);
     const {hours} = n;
