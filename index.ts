@@ -175,6 +175,14 @@ export function formatmmssFixedFn(fractionDigits = 0): (duration: DurationLike) 
     return duration => formatmmssFixed(duration, fractionDigits);
 }
 
+export function formatHoursFixed(duration: DurationLike, fractionDigits = 0): string {
+    return toHours(duration).toFixed(fractionDigits);
+}
+
+export function formatHoursFixedFn(fractionDigits = 0): (duration: DurationLike) => string {
+    return duration => formatHoursFixed(duration, fractionDigits);
+}
+
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }
