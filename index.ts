@@ -163,6 +163,18 @@ export function formatmmss(duration: DurationLike): string {
     return "" + minutes + ":" + ("0" + seconds).replace(/^0?([0-9]{2})/, "$1");
 }
 
+export function formatmmssFixed(duration: DurationLike, fractionDigits = 0): string {
+    const n = normalize(duration);
+    const minutes = n.hours * 60 + n.minutes;
+    const {seconds} = n;
+    return "" + minutes + ":"
+        + ("0" + seconds.toFixed(fractionDigits)).replace(/^0?([0-9]{2})/, "$1");
+}
+
+export function formatmmssFixedFn(fractionDigits = 0): (duration: DurationLike) => string {
+    return duration => formatmmssFixed(duration, fractionDigits);
+}
+
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }
