@@ -183,6 +183,14 @@ export function formatHoursFixedFn(fractionDigits = 0): (duration: DurationLike)
     return duration => formatHoursFixed(duration, fractionDigits);
 }
 
+export function formatMinutesFixed(duration: DurationLike, fractionDigits = 0): string {
+    return toMinutes(duration).toFixed(fractionDigits);
+}
+
+export function formatMinutesFixedFn(fractionDigits = 0): (duration: DurationLike) => string {
+    return duration => formatMinutesFixed(duration, fractionDigits);
+}
+
 export function add(a: DurationLike, b: DurationLike): Duration {
     return fromSeconds(toSeconds(a) + toSeconds(b));
 }

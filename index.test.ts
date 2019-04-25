@@ -8,6 +8,7 @@ import {
     formathhmmss,
     formathhmmssFixed,
     formatHoursFixed,
+    formatMinutesFixed,
     formatmmss,
     formatmmssFixed,
     fromHours,
@@ -254,6 +255,38 @@ test("formatHoursFixed", t => {
     t.is(formatHoursFixed({hours: -1, minutes: 8, seconds: 4}, 3), "-0.866");
     t.is(formatHoursFixed({hours: -1, minutes: 8, seconds: 4}, 2), "-0.87");
     t.is(formatHoursFixed({hours: -1, minutes: 8, seconds: 4}, 1), "-0.9");
+});
+
+test("formatMinutesFixed", t => {
+    t.is(formatMinutesFixed({}), "0");
+    t.is(formatMinutesFixed({seconds: 80}, 4), "1.3333");
+    t.is(formatMinutesFixed({seconds: 80}, 2), "1.33");
+    t.is(formatMinutesFixed({seconds: 80}, 1), "1.3");
+    t.is(formatMinutesFixed({seconds: 80}), "1");
+    t.is(formatMinutesFixed({minutes: 3}, 2), "3.00");
+    t.is(formatMinutesFixed({minutes: 3}), "3");
+    t.is(formatMinutesFixed({minutes: 1.5, seconds: 2}, 4), "1.5333");
+    t.is(formatMinutesFixed({minutes: 1.5, seconds: 2}, 2), "1.53");
+    t.is(formatMinutesFixed({minutes: 1.5, seconds: 2}, 1), "1.5");
+    t.is(formatMinutesFixed({minutes: 1.5, seconds: 2}), "2");
+    t.is(formatMinutesFixed({hours: 2}), "120");
+    t.is(formatMinutesFixed({hours: 2}, 2), "120.00");
+    t.is(formatMinutesFixed({hours: 2.25, minutes: 0.5, seconds: 3}, 3), "135.550");
+    t.is(formatMinutesFixed({hours: 2.25, minutes: 0.5, seconds: 3}, 2), "135.55");
+    t.is(formatMinutesFixed({hours: 2.25, minutes: 0.5, seconds: 3}, 1), "135.6");
+    t.is(formatMinutesFixed({hours: 2.25, minutes: 0.5, seconds: 3}), "136");
+    t.is(formatMinutesFixed({seconds: -5}, 4), "-0.0833");
+    t.is(formatMinutesFixed({seconds: -5}, 2), "-0.08");
+    t.is(formatMinutesFixed({seconds: -5}, 1), "-0.1");
+    t.is(formatMinutesFixed({seconds: -5}), "-0");
+    t.is(formatMinutesFixed({minutes: 1, seconds: -3}, 3), "0.950");
+    t.is(formatMinutesFixed({minutes: 1, seconds: -3}, 2), "0.95");
+    t.is(formatMinutesFixed({minutes: 1, seconds: -3}, 1), "0.9");
+    t.is(formatMinutesFixed({minutes: 1, seconds: -3}), "1");
+    t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}, 4), "-51.9333");
+    t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}, 2), "-51.93");
+    t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}, 1), "-51.9");
+    t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}), "-52");
 });
 
 test("add", t => {
