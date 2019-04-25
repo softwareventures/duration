@@ -10,7 +10,7 @@ import {
     formatHoursFixed,
     formatMinutesFixed,
     formatmmss,
-    formatmmssFixed,
+    formatmmssFixed, formatSecondsFixed,
     fromHours,
     fromMinutes,
     multiply,
@@ -287,6 +287,22 @@ test("formatMinutesFixed", t => {
     t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}, 2), "-51.93");
     t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}, 1), "-51.9");
     t.is(formatMinutesFixed({hours: -1, minutes: 8, seconds: 4}), "-52");
+});
+
+test("formatSecondsFixed", t => {
+    t.is(formatSecondsFixed({}), "0");
+    t.is(formatSecondsFixed({seconds: 80}), "80");
+    t.is(formatSecondsFixed({minutes: 3}), "180");
+    t.is(formatSecondsFixed({minutes: 1.5, seconds: 2}), "92");
+    t.is(formatSecondsFixed({hours: 2}), "7200");
+    t.is(formatSecondsFixed({hours: 2.25, minutes: 0.5, seconds: 3}), "8133");
+    t.is(formatSecondsFixed({seconds: -5}), "-5");
+    t.is(formatSecondsFixed({minutes: 1, seconds: -3}), "57");
+    t.is(formatSecondsFixed({hours: -1, minutes: 8, seconds: 4}), "-3116");
+    t.is(formatSecondsFixed({seconds: 2.34563}, 4), "2.3456",);
+    t.is(formatSecondsFixed({seconds: 2.34563}, 2), "2.35",);
+    t.is(formatSecondsFixed({seconds: 2.34563}, 1), "2.3",);
+    t.is(formatSecondsFixed({seconds: 2.34563}), "2",);
 });
 
 test("add", t => {
