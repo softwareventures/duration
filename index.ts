@@ -38,6 +38,8 @@ export function normalize(duration: DurationLike): Duration {
     return fromSeconds(toSeconds(duration));
 }
 
+export const zero: Duration = {hours: 0, minutes: 0, seconds: 0};
+
 export function toSeconds(duration: DurationLike): number {
     const hours = duration.hours == null ? 0 : duration.hours;
     const minutes = duration.minutes == null ? 0 : duration.minutes;
