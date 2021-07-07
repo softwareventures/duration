@@ -3,9 +3,9 @@
   "version": "0.0.0-development",
   "description": "Data type representing a duration of time",
   "keywords": [
-    "typescript",
     "duration",
-    "time"
+    "time",
+    "typescript"
   ],
   "author": "Daniel Cassidy <mail@danielcassidy.me.uk>",
   "homepage": "https://github.com/softwareventures/duration",
@@ -14,10 +14,18 @@
   "license": "ISC",
   "scripts": {
     "prepare": "tsc",
-    "test": "tslint --project . && ava",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "test": "tslint --project . && ava"
   },
   "sideEffects": false,
+  "dependencies": {
+    "@types/is-finite": "^1.0.0",
+    "@types/is-integer": "^1.0.0",
+    "@types/math-trunc": "^1.0.0",
+    "is-finite": "^1.0.2",
+    "is-integer": "^1.0.7",
+    "math-trunc": "^1.0.1"
+  },
   "devDependencies": {
     "@softwareventures/semantic-release-config": "1.2.0",
     "@softwareventures/tsconfig": "2.3.3",
@@ -41,14 +49,6 @@
     "require": [
       "ts-node/register"
     ]
-  },
-  "dependencies": {
-    "@types/is-finite": "^1.0.0",
-    "@types/is-integer": "^1.0.0",
-    "@types/math-trunc": "^1.0.0",
-    "is-finite": "^1.0.2",
-    "is-integer": "^1.0.7",
-    "math-trunc": "^1.0.1"
   },
   "release": {
     "extends": "@softwareventures/semantic-release-config"
